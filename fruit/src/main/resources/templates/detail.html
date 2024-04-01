@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <Title>Detail</Title>
+</head>
+<form action="./list" method="post">
+    <table>
+        <tr>
+            <td>fruitId</td><td><input type="text" name="fruitId" id="fruitId" th:value="${dto.fruitId}" readonly="readonly"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>fruitName</td><td><input type="text" name="fruitName" id="fruitName" th:value="${dto.fruitName}" readonly="readonly"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>fruitPrice</td><td><input type="text" name="fruitPrice" id="fruitPrice" th:value="${dto.fruitPrice}" readonly="readonly"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>fruitStock</td><td><input type="text" name="fruitStock" id="fruitStock" th:value="${dto.fruitName}" readonly="readonly"></td>
+            <td></td>
+        </tr>
+    </table>
+</form>

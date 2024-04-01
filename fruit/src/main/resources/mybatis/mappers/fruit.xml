@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sku.lesson.fruit.dto.FruitDTO">
+    <resultMap id="fruitMap" type="FruitDTO">
+        <id property="fruitId" column="fruitId"></id>
+        <result property="fruitName" column="fruitName"></result>
+        <result property="fruitPrice" column="fruitPrice"></result>
+        <result property="fruitStock" column="fruitStock"></result>
+    </resultMap>
+
+    <select id="selectAll" resultMap="fruitMap" resultType="FruitDTO">
+        <![CDATA[
+        select * from fruit
+        ]]>
+    </select>
+    <select id="select" resultMap="FruitDTO" resultType="java.lang.String">
+        <![CDATA[
+        select * from fruit where fruitId = #{id}
+        ]]>
+    </select>
+    <select id="selectById" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        <![CDATA[
+        select count(*) from fruit where fruitId = #{id}
+        ]]>
+    </select>
+    <select id="delete" parameterType="java.lang.Integer">
+		<![CDATA[
+        delete from fruit where fruitId = #{id}
+        ]]>
+	</select>
+    <select id="update" parameterType="FruitDTO">
+        <![CDATA[
+        update fruit set fruitName = #{fruitName}, fruitPrice = #{fruitPrice}, fruitStock = #{fruitStock}
+        ]]>
+    </select>
+    <select id="insert" parameterType="FruitDTO">
+		<![CDATA[
+        insert into fruit values (#{fruitId},#{fruitName},#{fruitPrice},#{fruitStock})
+        ]]>
+	</select>
+</mapper>
